@@ -9,7 +9,10 @@
 
     </div>
         <div style="width: 100%; height: 550px;">
-            <h4 style="color: red;">{{ message }}</h4>
+            <center>
+                 <h4 style="color: red; background: white; max-width: max-content;">{{ message }}</h4>
+            </center>
+
             {% for i in num %}
                 <input type="number" value="{{ i }}" disabled>
             {% endfor %}
