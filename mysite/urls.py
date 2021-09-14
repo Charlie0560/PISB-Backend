@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 import django.urls
 from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -24,6 +26,7 @@ urlpatterns = [
     django.urls.path('admin/', admin.site.urls),
     django.urls.path('users/', include('users.urls')),
     django.urls.path('', views.index, name='index'),
-    django.urls.path('app1/', django.urls.include("app1.urls"))
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
